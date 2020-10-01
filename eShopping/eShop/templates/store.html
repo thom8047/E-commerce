@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+{% if products_list %}
+    <div class="row">
+
+        {% for product in products_list  %}
+        
+        <span class='product'>
+
+            
+
+            <div>
+                <img class="thumbnail" src="{% static 'img/google.png' %}">
+
+                <h3><strong>{{ product.name }}</strong></h3>
+                <div>
+                    <p style='display: inline-block;'>{{ product.description }}</p>
+                </div>
+                <button type='submit'>Add to Cart</button>
+                <a href='#'>View</a>
+                <h4 style='display: inline-block;'>${{ product.price }}</h4>
+            </div>
+
+        </span>
+
+        {% endfor %}
+
+    </div>
+
+{% else %}
+
+    NO PRODUCTS
+
+{% endif %}
+
+
+
+{% endblock content %}

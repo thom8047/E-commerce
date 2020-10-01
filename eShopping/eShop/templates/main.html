@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<!-- Just an update on the page scheme as far as looks also some basic bootstrap content explained
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+-------------------------------------------------------------------------------------------------------------
+- NO LONGER IN USE - NO LONGER IN USE - NO LONGER IN USE - NO LONGER IN USE - NO LONGER IN USE - NO LONGER IN USE - 
+        .navbar-brand for your company, product, or project name.
+        .navbar-nav for a full-height and lightweight navigation (including support for dropdowns).
+        .navbar-toggler for use with our collapse plugin and other navigation toggling behaviors.
+        .form-inline for any form controls and actions.
+        .navbar-text for adding vertically centered strings of text.
+        .collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.
+\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------
+
+Switching to my own css and javascript
+
+This entire html is not right, compare to the self made navbar and check what you can do to make it better.
+
+-->
+
+{% load static %}
+
+<html>
+    <!-- Possibly adding in bootstrap stylesheets, but thinking I can make some simple shit too -->
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+        <title>Mock Store App</title>
+        <link rel='stylesheet' type="text/css" href="{% static 'css/main.css'%}">
+    </head>
+    <!-- Body, but damnnear just the nav bar, don't like complicated class names -->
+    <body>
+
+    <div>
+
+        <div class='navbar'>
+
+            <!-- Deleted collapse button, if re-introduced, it'll be before navbar-brand or after every other element -->
+
+            <span class='left-side'>
+                <!-- Navbar brand, info on bar, add more links to keep them -->
+                <a class='navbar-brand' href='{% url "store" %}'>eShoppin'</a>
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+            </span>
+<!-- For more information of form tags check: https://www.w3schools.com/tags/tag_form.asp 
+For more information of input tags check: https://www.w3schools.com/tags/tag_input.asp -->
+            <span class='right-side'>
+                <form class='search'>
+                    <input type='search' placeholder=''>
+                    <!-- Could also be done with an input tag, type='submit' -->
+                    <button type='submit'>O</button>
+                </form>
+
+                <a href="{% url 'login' %}?next={% url 'store' %}">Login</a>
+                <!--{blah blah} ?next={{request.path}} <- this code will redirect to the previous page, if changed
+                to a specific location then it'll always redirect to said url unless previously written in. -->
+                <a href="{% url 'signup' %}?next={% url 'store' %}">Sign Up</a>
+                <a href="{% url 'cart' %}">Cart</a>
+                    <p id="cart-total">0</p>
+
+            </span>
+
+        </div>
+
+    </div>
+
+        <!-- Fill block -->
+
+        <div class= "container">
+            {% block content %}
+    
+            {% endblock content %}
+        </div>
+     
+        <!-- Possible area to import self.js -->
+
+    </body>
+
+</html>

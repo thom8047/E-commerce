@@ -1,0 +1,130 @@
+/* These are my edits to the original, check whether you can override the bootstrap defaults
+
+Looked up some info, best wait to @override is to use id such as the one below. Thos keeps the coolness of the bootstrap css
+but allows our overweighted css[indicated by the id] to take over.
+
+After messing with boostrap defaults, it is more challenging to change around details along with keeping the javascript. I'd
+change the complete format and keep different css and html aspects and use my own javascript. Perfect opprotunity to do so and 
+show off to the group. Will take some time to write out.
+
+Way to write variables in css:
+
+:root{                                      # This is the spot where all global calls can come from
+    --main-color: white;
+}
+
+#div1 {
+  background-color: var(--main-color);      # Refernce global calls from the var() function
+}
+
+*/
+
+:root{    /*GLOBAL VARIABLES*/
+  --main-background: white;
+}
+
+body{
+  background-color: var(--main-background);
+
+  font-family: 'Times New Roman';
+  margin: 0;
+}
+
+h1 h2 h3 h4 h5 h6 p{
+  display: inline-block;
+}
+
+.navbar{
+  overflow: hidden;
+  z-index: 1;
+  background-color: #111;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 7%;
+
+  transition: 0.5s;
+}
+
+  .navbar span {
+    text-align: center;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 25px;
+    padding: 10px 20px;
+    border-right: 3px solid #818181 ;
+  }
+
+  .navbar a {
+    padding: 5px 5px;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: #818181;
+    display: inline-block;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .navbar a:hover {
+    color: #f1f1f1;
+  }
+
+  .navbar .left-side{
+    float: left;
+  }
+
+  .navbar .right-side{
+    float: right;
+    padding: 10px 15px 0px 0px;
+  }
+  .navbar .right-side input[type=search] {
+    transition: 0.5s;
+    outline: none;
+    height: 140%;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    font-size: 16px;
+  }
+  .navbar .right-side input[type=search]:focus {
+    border: 3px solid #555;
+  }
+  .navbar .right-side button[type=submit] {
+    background-color: black; /* Green */
+    box-sizing: border-box;
+    border: none;
+    color: #818181;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .navbar .right-side button[type=submit]:hover {
+    color: #f1f1f1;
+  }
+
+  .navbar .search{
+    display: inline-block;
+  }
+
+.container {
+  margin-top: 12%;
+  text-align: center;
+  margin-bottom: 12%;
+}
+
+  .container .row .product {
+    
+    border: 3px solid black;
+    position: relative;
+    display: inline-block;
+    width: 23%;
+    bottom: 100px;
+  }
+
+/* The fix is that yes, vertical padding and margin are relative to width, but top and bottom aren't.
+
+So just place a div inside another, and in the inner div, use something like top:50% (remember position matters if it still doesn't work) */
